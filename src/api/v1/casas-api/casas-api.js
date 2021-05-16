@@ -4,7 +4,7 @@ const error = require("../api-errors/api-errors");
 class CasasApi{
 
     constructor(){
-        this.collection = "Casas";
+        this.collection = "casas";
     }
 
     // /api/v1/casas/all
