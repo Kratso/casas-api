@@ -17,7 +17,7 @@ class DatabaseConnector{
             }, function(err, db) {
                 if (err) 
                     throw err;
-                dbconnector.database = db.db("Pokehub");
+                dbconnector.database = db.db("casas");
                 console.log("Connected.");
             });
     }
