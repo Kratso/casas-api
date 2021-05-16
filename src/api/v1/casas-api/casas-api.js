@@ -53,4 +53,4 @@ class CasasApi{
 
 }
 
-module.exports = new PokemonApi();
+module.exports = new CasasApi();
