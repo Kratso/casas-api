@@ -6,7 +6,7 @@ const auth = require('../auth-api/auth');
 class UsersApi{
 
     constructor(){
-        this.collection = "Users";
+        this.collection = "users";
     }
 
     hashPassword(password){
@@ -28,9 +28,9 @@ class UsersApi{
             }
             if(user && passwordHash.verify(password, user.password))
                 res.send({
-                    authorization: auth.generateBearer(user._id),
                     mail: user._id,
                     username: user.username,
+                    canVote: user.canVote
                 });
             else res.status(error.wrong_credentials.code).send(error.wrong_credentials);
         });
@@ -47,6 +47,7 @@ class UsersApi{
             _id: req.body.mail,
             username: "",
             password: this.hashPassword(req.body.password),
+            canVote: true,
         }
         let thisobj = this;
         if(!await this.checkUserMail(req))

@@ -1,5 +1,6 @@
 const casasApi = require("./src/api/v1/casas-api/casas-api");
 const usersApi = require("./src/api/v1/users-api/users-api");
+const votosApi = require("./src/api/v1/votos-api/votos-api")
 
 const { PORT } = require('./src/config');
 const bodyParser = require('body-parser');
@@ -34,16 +35,25 @@ app.use('/', express.static(__dirname + '/'));
 
 //Sets the app listening
 app.listen(PORT, () => {
-    console.log('PokeHub API Server running at port ' + PORT);
+    console.log('VotoCasas API Server running at port ' + PORT);
     database.connect();
 });
 
-/********* POKEMON CALLS **********/
+/********* CASAS CALLS **********/
 
 app.get('/api/v1/casas/all',(req, res) => {
     casasApi.getAllCasas(req, res);
 });
 
+/********* VOTOS CALLS **********/
+
+app.get('/api/v1/votos/all', (req, res) => {
+    votosApi.getAllVotos(req, res);
+});
+
+app.post('/api/v1/votos/post', (req, res) => {
+    votosApi.postVote(req, res);
+});
 
 
 /********* USERS CALLS **********/
