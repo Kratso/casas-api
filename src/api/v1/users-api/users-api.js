@@ -15,7 +15,7 @@ class UsersApi{
 
     // /api/v1/users/login
     loginUser(req, res){
-        console.log(req.body);
+        console.log("login", req.body);
 
         let user = req.body.user;
         let password = req.body.password;
@@ -43,6 +43,7 @@ class UsersApi{
 
     // /api/v1/users/register
     async registerUser(req, res){
+        console.log("register",req.body)
         let user = {
             _id: req.body.mail,
             username: "",

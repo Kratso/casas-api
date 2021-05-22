@@ -51,6 +51,10 @@ app.get('/api/v1/votos/all', (req, res) => {
     votosApi.getAllVotos(req, res);
 });
 
+app.get('/api/v1/votos/getGanador', (req, res) => {
+    votosApi.getGanador(req, res);
+})
+
 app.post('/api/v1/votos/post', (req, res) => {
     votosApi.postVote(req, res);
 });
